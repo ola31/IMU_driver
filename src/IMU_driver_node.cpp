@@ -9,7 +9,7 @@
 #include <tf2/LinearMath/Quaternion.h>
 #include <tf2_geometry_msgs/tf2_geometry_msgs.h>
 
-IMU imu("can1",0x01,false);
+IMU imu("can0",0x01,false);
 
 int main(int argc, char **argv)
 {

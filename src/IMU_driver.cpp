@@ -5,7 +5,7 @@ IMU::IMU(string port, int id, bool is_ext_mode):CAN(port, id, is_ext_mode){
 }
 
 void IMU::initialize_imu(void){
-  CAN_initialize(_250k,"CAN1");   //bit_rate : 1Mbps, ID : 1, is_ext_mode : true
+  CAN_initialize(_250k,"CAN0");   //bit_rate : 1Mbps, ID : 1, is_ext_mode : true
 }
 
 void IMU::set_Bitrate_250(void){
