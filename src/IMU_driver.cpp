@@ -85,8 +85,8 @@ void IMU::set_id(int id_num){
   BYTE id_arr[8]={0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00};
   id_arr[0] = 0x18;
 
-  id_arr[1] = (24) & 0xff;    //low data
-  id_arr[2] = (24)>>8 & 0xff; //high data
+  id_arr[1] = (11) & 0xff;    //low data
+  id_arr[2] = (11)>>8 & 0xff; //high data
 
   id_arr[4] = (id_num) & 0xff;
   id_arr[5] = (id_num)>>8 & 0xff;

@@ -30,7 +30,7 @@ int main(int argc, char **argv)
   //imu.set_Bitrate_250();
   //imu.save_params();
   //imu.software_reset();
-  //imu.set_sync_tx_cycle(10);  //10ms = 100hz
+  imu.set_sync_tx_cycle(10);  //10ms = 100hz
   imu.set_id(2);
   imu.save_params();
   imu.software_reset();
