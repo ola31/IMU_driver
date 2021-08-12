@@ -81,6 +81,20 @@ void IMU::set_sync_tx_cycle(int cycle_num){
   CAN_write(cycle_arr);
 }
 
+void IMU::set_id(int id_num){
+  BYTE id_arr[8]={0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00};
+  id_arr[0] = 0x18;
+
+  id_arr[1] = (24) & 0xff;    //low data
+  id_arr[2] = (24)>>8 & 0xff; //high data
+
+  id_arr[4] = (id_num) & 0xff;
+  id_arr[5] = (id_num)>>8 & 0xff;
+  id_arr[6] = (id_num)>>16 & 0xff;
+  id_arr[7] = (id_num)>>24 & 0xff;
+  CAN_write(id_arr);
+}
+
 void IMU::imu_req(void){
   BYTE imu_req_arr[8]={0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00};
   int i=0,j=0;

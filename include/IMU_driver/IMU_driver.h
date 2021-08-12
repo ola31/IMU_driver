@@ -40,6 +40,7 @@ class IMU : public CAN
   void save_params(void);
   void software_reset(void);
   void set_sync_tx_cycle(int cycle_num);
+  void set_id(int id_num);
 
 };
 
