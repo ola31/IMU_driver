@@ -30,16 +30,17 @@ int main(int argc, char **argv)
   //imu.set_Bitrate_250();
   //imu.save_params();
   //imu.software_reset();
-  imu.set_sync_tx_cycle(10);  //10ms = 100hz
-  imu.set_id(2);
-  imu.save_params();
-  imu.software_reset();
+  imu.set_sync_tx_cycle(50);  //10ms = 100hz
+//  imu.set_id(2);
+
+  //imu.save_params();
+  //imu.software_reset();
 
   //imu.imu_req();
   imu.set_sync_req(true);
   imu.set_sync_req(true);
 
-  ros::Rate loop_rate(100);  //100hz = 10ms  ,200hz = 5ms ,50hz = 20ms
+  ros::Rate loop_rate(20);  //100hz = 10ms  ,200hz = 5ms ,50hz = 20ms
   while (ros::ok())
   {
 
