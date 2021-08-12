@@ -18,19 +18,31 @@ int main(int argc, char **argv)
 
   ros::Publisher chatter_pub = nh.advertise<std_msgs::String>("chatter", 1000);
   ros::Publisher angle_pub = nh.advertise<std_msgs::Float32>("/angle/x", 1000);
+  ros::Publisher gyro_z_pub = nh.advertise<std_msgs::Float32>("/gyro/z", 1000);
   ros::Publisher imu_pub = nh.advertise<sensor_msgs::Imu>("/imu", 1000);
 
   sensor_msgs::Imu imu_msg;
   tf2::Quaternion myQuaternion;
 
   imu.initialize_imu();
+
+
+  //imu.set_Bitrate_250();
+  //imu.save_params();
+  //imu.software_reset();
+  //imu.set_sync_tx_cycle(10);  //10ms = 100hz
+  //imu.save_params();
+  //imu.software_reset();
+
   //imu.imu_req();
   imu.set_sync_req(true);
   imu.set_sync_req(true);
 
-  ros::Rate loop_rate(10);  //100hz = 10ms
+  ros::Rate loop_rate(100);  //100hz = 10ms  ,200hz = 5ms ,50hz = 20ms
   while (ros::ok())
   {
+
+    //imu.set_Bitrate_250();
     //imu.imu_read();
     imu.read_sync_data();
 
@@ -104,12 +116,14 @@ int main(int argc, char **argv)
 
 
     std_msgs::Float32 msg;
-    msg.data = imu.angle_x;
+    msg.data = imu.gyro_z;
 
 
 
     //angle_pub.publish(msg);
     imu_pub.publish(imu_msg);
+
+    gyro_z_pub.publish(msg);
    //ROS_INFO("testing");
 
     ros::spinOnce();

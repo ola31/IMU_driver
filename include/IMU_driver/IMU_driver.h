@@ -34,6 +34,13 @@ class IMU : public CAN
   void imu_read(void);
   void read_sync_data(void);
 
+  void set_Bitrate_250(void);
+
+  void cmd(int cmd_num);
+  void save_params(void);
+  void software_reset(void);
+  void set_sync_tx_cycle(int cycle_num);
+
 };
 
 #endif // IMU_DRIVER_H
